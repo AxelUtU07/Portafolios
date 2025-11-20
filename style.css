@@ -1,0 +1,392 @@
+/* ----------------------------------- */
+/* 1. RESET Y VARIABLES CSS */
+/* ----------------------------------- */
+:root {
+    /* Variables de Color */
+    --color-primary: #3498db; /* Azul vibrante */
+    --color-secondary: #2c3e50; /* Azul oscuro/negro */
+    --color-light: #ecf0f1; /* Gris claro */
+    --color-dark: #333; /* Gris oscuro para texto */
+    
+    /* Variables de Tipografía */
+    --font-size-base: 1.125rem; /* 18px */
+    --font-family-body: sans-serif;
+    
+    /* Variables de Layout */
+    --max-width: 1200px;
+    --spacing-lg: 3rem;
+    --spacing-md: 1.5rem;
+}
+
+/* Reset básico (como en el video) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-base);
+    color: var(--color-dark);
+    line-height: 1.6;
+    background-color: var(--color-light);
+    scroll-behavior: smooth;
+    /* Evita la barra de desplazamiento horizontal no deseada (técnica del video) */
+    overflow-x: hidden; 
+}
+
+/* Contenedor central (para centrar el contenido) */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ----------------------------------- */
+/* 2. ESTILOS GENERALES Y SECCIONES */
+/* ----------------------------------- */
+.section {
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+}
+
+/* Estilo para secciones con fondo alterno */
+.skills, .contact {
+    background-color: white;
+}
+
+/* ----------------------------------- */
+/* 3. CABECERA (HEADER) */
+/* ----------------------------------- */
+.header {
+    background-color: var(--color-secondary);
+    color: white;
+    position: sticky; /* Menú fijo */
+    top: 0;
+    z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    margin-left: var(--spacing-md);
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--color-primary);
+}
+
+/* ----------------------------------- */
+/* 4. BOTONES (UTILITIES) */
+/* ----------------------------------- */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-top: var(--spacing-md);
+    transition: background-color 0.3s;
+}
+
+.primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.primary:hover {
+    background-color: #2980b9; /* Tono más oscuro */
+}
+
+.secondary {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    border: 1px solid var(--color-dark);
+}
+
+.secondary:hover {
+    background-color: var(--color-dark);
+    color: white;
+}
+
+/* ----------------------------------- */
+/* 5. ESTILOS DE PERFIL (HERO) */
+/* ----------------------------------- */
+
+.hero {
+    background-color: var(--color-secondary);
+    color: white;
+    padding: var(--spacing-lg) 0 calc(var(--spacing-lg) * 2); /* Más padding inferior */
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile-photo img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%; /* Foto redonda */
+    object-fit: cover;
+    border: 5px solid var(--color-primary); /* Borde primario para destacar */
+    margin-bottom: var(--spacing-md);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero .subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-light);
+    margin-bottom: var(--spacing-md);
+}
+
+.hero .bio {
+    max-width: 700px;
+    margin: 0 auto var(--spacing-md) auto;
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* ----------------------------------- */
+/* 6. ESTILOS DE HABILIDADES (SKILLS) */
+/* ----------------------------------- */
+
+.skills h2 {
+    margin-bottom: var(--spacing-lg);
+}
+
+.skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px; /* Menor espacio entre ítems */
+    max-width: 900px;
+    margin: var(--spacing-md) auto;
+    display: grid; /* Importante para el grid */
+}
+
+.skill-item {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 0.9rem; /* Reducir un poco el tamaño de fuente */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.skill-item:hover {
+    background-color: var(--color-primary);
+    color: white;
+    transform: translateY(-3px); /* Pequeño efecto de elevación */
+}
+
+
+/* ----------------------------------- */
+/* 7. ESTILOS DE PROYECTOS */
+/* ----------------------------------- */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Mínimo 320px para tarjetas más grandes */
+    gap: var(--spacing-lg); /* Más espacio entre tarjetas */
+    margin-top: var(--spacing-lg);
+}
+
+.project-card {
+    background-color: white;
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; 
+}
+
+.project-card .project-link {
+    text-decoration: none; 
+    color: var(--color-dark); 
+    display: block; 
+    margin-bottom: var(--spacing-md); 
+}
+
+.project-card .project-link:hover h3 {
+    color: var(--color-primary); 
+}
+
+.project-card .project-image {
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 4px; 
+    margin-bottom: var(--spacing-md); 
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem; 
+}
+
+.project-card p {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-md); 
+    flex-grow: 1; 
+}
+
+.project-card .btn {
+    align-self: flex-start; 
+}
+
+
+/* ----------------------------------- */
+/* 8. FORMULARIO DE CONTACTO */
+/* ----------------------------------- */
+.contact-form {
+    max-width: 600px;
+    margin: var(--spacing-md) auto;
+    text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: var(--spacing-md);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: var(--font-family-body);
+}
+
+/* ----------------------------------- */
+/* 9. PIE DE PÁGINA (FOOTER) */
+/* ----------------------------------- */
+.footer {
+    background-color: var(--color-secondary);
+    color: white;
+    padding: var(--spacing-md) 0;
+    font-size: 0.9rem;
+}
+
+
+/* ----------------------------------- */
+/* 10. RESPONSIVE MEDIA QUERIES */
+/* ----------------------------------- */
+@media (max-width: 768px) {
+
+    .nav-menu {
+        padding-top: 10px;
+    }
+    .nav-menu a {
+        margin: 0 5px;
+        display: inline-block;
+        font-size: 0.9rem;
+    }
+}
+
+.videos {
+    background-color: var(--color-light); 
+}
+
+.videos h2 {
+    margin-bottom: var(--spacing-lg);
+}
+
+.video-card-single {
+    max-width: 900px; /* Aumenta el ancho máximo de la tarjeta para que el video tenga más espacio */
+    margin: var(--spacing-lg) auto; 
+    background-color: white;
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+/* Estilos para hacer el iframe de video responsivo (técnica común) */
+.video-responsive {
+    position: relative;
+    /* Aumenta este valor para hacer el video más alto */
+    /* 56.25% es 16:9. Un valor más alto significa un video más "alto" en relación a su ancho */
+    padding-bottom: 65%; /* Ejemplo: 65% para un video más grande. Puedes experimentar. */
+    height: 0;
+    overflow: hidden;
+    width: 100%; /* El video ocupa todo el ancho disponible */
+    max-width: 95%; /* Ocupa más ancho dentro de la tarjeta, dejando un pequeño margen */
+    background: #000; 
+    border-radius: 4px;
+    margin-top: var(--spacing-md); /* Un poco de espacio superior dentro de la tarjeta */
+}
+
+.video-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Mantener el resto de estilos de h3, p, btn como están */
+.video-card-single h3 {
+    font-size: 1.8rem;
+    margin-top: var(--spacing-md); 
+    margin-bottom: 0.5rem;
+    color: var(--color-dark);
+    text-align: center; 
+}
+
+.video-card-single p {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-md);
+    text-align: center; 
+    max-width: 90%; 
+}
+
+.video-card-single .btn {
+    align-self: center; 
+}
+
+/* ----------------------------------- */
+/* 11. AJUSTES RESPONSIVE ADICIONALES */
+/* ----------------------------------- */
+@media (max-width: 768px) {
+    .video-card-single {
+        max-width: 100%; /* Permite que la tarjeta ocupe más ancho en pantallas pequeñas */
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 0; /* Opcional: sin bordes redondeados en móvil si prefieres */
+    }
+    .video-responsive {
+        padding-bottom: 70%; /* Aumenta aún más la altura relativa en móviles para que se vea más grande */
+        max-width: 100%;
+    }
+
+}
